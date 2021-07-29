@@ -1,0 +1,32 @@
+{
+    "name": "yudce-module-general",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "node test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hemashushu/yudce-module-general.git"
+    },
+    "keywords": [
+        "digital",
+        "circuit",
+        "logic"
+    ],
+    "author": "Hippo Spark <hippospark@gmail.com> (https://twitter.com/hemashushu)",
+    "license": "SEE LICENSE IN <LICENSE.md>",
+    "bugs": {
+        "url": "https://github.com/hemashushu/yudce-module-general/issues"
+    },
+    "homepage": "https://github.com/hemashushu/yudce-module-general",
+    "devDependencies": {
+        "jslogiccircuitunittest": "github:hemashushu/jslogiccircuitunittest"
+    },
+    "dependencies": {
+        "jsbinary": "github:hemashushu/jsbinary",
+        "jsexception": "github:hemashushu/jsexception",
+        "jslogiccircuit": "github:hemashushu/jslogiccircuit"
+    }
+}

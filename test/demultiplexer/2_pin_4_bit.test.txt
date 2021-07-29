@@ -1,0 +1,9 @@
+---
+selectPinBitWidth: 1
+bitWidth: 1
+---
+in      select  out_0   out_1
+0b0101  0       0b0101  0
+0b0101  1       0       0b0101
+0b1100  0       0b1100  0
+0b1100  1       0       0b1100

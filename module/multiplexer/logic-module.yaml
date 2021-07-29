@@ -1,0 +1,21 @@
+title: Multiplexer
+title[zh_CN]: 复用器
+description: Multiplexer
+description[zh_CN]: 复用器
+group: "Plexers"
+iconFilename: icon.png
+defaultParameters:
+  selectPinBitWidth:
+    description: The bit width of select pin
+    value: 2
+    valueType: range
+    valueRange:
+      from: 1
+      to: 4
+  bitWidth:
+    description: The bit width of input and output pins
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
