@@ -1,0 +1,16 @@
+title: Decoder
+title[zh_CN]: 译码器
+description: Binary to decimal decoder
+description[zh_CN]: 二进制-十进制译码
+group: "Plexers"
+iconFilename: icon.png
+defaultParameters:
+  inputPinCount:
+    description: The amount of input pins
+    value: 2
+    valueType: option
+    valueOptions:
+      - 1
+      - 2
+      - 3
+      - 4

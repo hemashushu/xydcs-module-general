@@ -3,7 +3,7 @@ selectPinBitWidth: 2
 bitWidth: 2
 ---
 in    select  out_0  out_1  out_2  out_3
-0b11  0       0b11   0b00   0b00   0b00
-0b11  1       0b00   0b11   0b00   0b00
-0b11  2       0b00   0b00   0b11   0b00
-0b11  3       0b00   0b00   0b00   0b11
+0b11  0b00    0b11   0b00   0b00   0b00
+0b11  0b01    0b00   0b11   0b00   0b00
+0b11  0b10    0b00   0b00   0b11   0b00
+0b11  0b11    0b00   0b00   0b00   0b11
