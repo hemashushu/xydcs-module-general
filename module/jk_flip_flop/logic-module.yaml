@@ -1,0 +1,24 @@
+title: JK Flip-Flop
+title[zh_CN]: JK 触发器
+description: JK Flip-Flop, positive edge triggered.
+description[zh_CN]: JK 触发器，上升边沿触发。
+group: "Flip-Flops"
+group[zh_CN]: "触发器"
+iconFilename: icon.png
+pins:
+  - name: J
+    description: Set
+    description[zh_CN]: 设置
+  - name: K
+    description: Reset
+    description[zh_CN]: 复位
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: Q
+    description: The stored value.
+    description[zh_CN]: 存储的值
+  - name: _Q
+    description: The inverted stored value.
+    description[zh_CN]: 反转存储的值

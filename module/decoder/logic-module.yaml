@@ -3,6 +3,7 @@ title[zh_CN]: 译码器
 description: Binary to decimal decoder
 description[zh_CN]: 二进制-十进制译码
 group: "Plexers"
+group[zh_CN]: "复用器"
 iconFilename: icon.png
 defaultParameters:
   inputPinCount:

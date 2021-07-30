@@ -3,6 +3,7 @@ title[zh_CN]: 编码器
 description: Decimal to binary priority encoder
 description[zh_CN]: 十进制-二进制优先编码器
 group: "Plexers"
+group[zh_CN]: "复用器"
 iconFilename: icon.png
 defaultParameters:
   outputPinCount:

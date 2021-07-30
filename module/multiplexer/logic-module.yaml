@@ -1,8 +1,9 @@
-title: Multiplexer
+title: Mux
 title[zh_CN]: 复用器
 description: Multiplexer
 description[zh_CN]: 复用器
 group: "Plexers"
+group[zh_CN]: "复用器"
 iconFilename: icon.png
 defaultParameters:
   selectPinBitWidth:

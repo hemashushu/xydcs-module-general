@@ -1,8 +1,9 @@
-title: Demultiplexer
+title: Demux
 title[zh_CN]: 多路分配器
 description: Demultiplexer
 description[zh_CN]: 多路分配器
 group: "Plexers"
+group[zh_CN]: "复用器"
 iconFilename: icon.png
 defaultParameters:
   selectPinBitWidth:

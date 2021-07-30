@@ -8,12 +8,13 @@ async function testModule(packageName, moduleClassName) {
 
     let moduleUnitTestResult;
 
-    try{
+    try {
         moduleUnitTestResult = await ModuleUnitTestController.testModule(
             packageName, moduleClassName);
 
-    }catch(err) {
+    } catch (err) {
         console.log('failed to run unit test, error: ' + err.message);
+        console.log(err);
         console.log('');
         return;
     }
