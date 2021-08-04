@@ -1,0 +1,158 @@
+inputPins:
+  - name: clock
+    bitWidth: 1
+outputPins:
+  - name: out_0
+    bitWidth: 1
+  - name: out_1
+    bitWidth: 1
+  - name: out_2
+    bitWidth: 1
+  - name: out_3
+    bitWidth: 1
+logicModules:
+  - packageName: yudce-module-general
+    moduleClassName: jk_flip_flop
+    name: jk_0
+  - packageName: yudce-module-general
+    moduleClassName: jk_flip_flop
+    name: jk_1
+  - packageName: yudce-module-general
+    moduleClassName: jk_flip_flop
+    name: jk_2
+  - packageName: yudce-module-general
+    moduleClassName: jk_flip_flop
+    name: jk_3
+  - packageName: yudce-module-base
+    moduleClassName: and_gate
+    name: and_0
+    parameters:
+      inputPinCount: 2
+      bitWidth: 1
+  - packageName: yudce-module-base
+    moduleClassName: and_gate
+    name: and_1
+    parameters:
+      inputPinCount: 2
+      bitWidth: 1
+  - packageName: yudce-module-base
+    moduleClassName: high_level
+    name: high
+    parameters:
+      bitWidth: 1
+connections:
+  # clock
+  - name: clock-jk_0-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: jk_0
+    nextPinName: Clock
+  - name: clock-jk_1-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: jk_1
+    nextPinName: Clock
+  - name: clock-jk_2-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: jk_2
+    nextPinName: Clock
+  - name: clock-jk_3-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: jk_3
+    nextPinName: Clock
+
+  # high
+  - name: high-jk_0-J
+    previousModuleName: high
+    previousPinName: out
+    nextModuleName: jk_0
+    nextPinName: J
+  - name: high-jk_0-K
+    previousModuleName: high
+    previousPinName: out
+    nextModuleName: jk_0
+    nextPinName: K
+
+  # jk_0
+  - name: jk_0-Q-out_0
+    previousModuleName: jk_0
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_0
+  - name: jk_0-Q-jk_1-J
+    previousModuleName: jk_0
+    previousPinName: Q
+    nextModuleName: jk_1
+    nextPinName: J
+  - name: jk_0-Q-jk_1-K
+    previousModuleName: jk_0
+    previousPinName: Q
+    nextModuleName: jk_1
+    nextPinName: K
+  - name: jk_0-Q-and_0-in_1
+    previousModuleName: jk_0
+    previousPinName: Q
+    nextModuleName: and_0
+    nextPinName: in_1
+
+  # jk_1
+  - name: jk_1-Q-out_1
+    previousModuleName: jk_1
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_1
+  - name: jk_1-Q-and_0-in_0
+    previousModuleName: jk_1
+    previousPinName: Q
+    nextModuleName: and_0
+    nextPinName: in_0
+
+  # and_0
+  - name: and_0-out-jk_2-J
+    previousModuleName: and_0
+    previousPinName: out
+    nextModuleName: jk_2
+    nextPinName: J
+  - name: and_0-out-jk_2-K
+    previousModuleName: and_0
+    previousPinName: out
+    nextModuleName: jk_2
+    nextPinName: K
+  - name: and_0-out-and_1-in_1
+    previousModuleName: and_0
+    previousPinName: out
+    nextModuleName: and_1
+    nextPinName: in_1
+
+  # jk_2
+  - name: jk_2-Q-out_2
+    previousModuleName: jk_2
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_2
+  - name: jk_2-Q-and_1-in_0
+    previousModuleName: jk_2
+    previousPinName: Q
+    nextModuleName: and_1
+    nextPinName: in_0
+
+  # and_1
+  - name: and_1-out-jk_3-J
+    previousModuleName: and_1
+    previousPinName: out
+    nextModuleName: jk_3
+    nextPinName: J
+  - name: and_1-out-jk_3-K
+    previousModuleName: and_1
+    previousPinName: out
+    nextModuleName: jk_3
+    nextPinName: K
+
+  # jk_3
+  - name: jk_3-Q-out_3
+    previousModuleName: jk_3
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_3

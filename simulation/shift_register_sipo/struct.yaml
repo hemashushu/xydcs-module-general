@@ -1,0 +1,99 @@
+inputPins:
+  - name: clock
+    bitWidth: 1
+  - name: in
+    bitWidth: 1
+outputPins:
+  - name: out_0
+    bitWidth: 1
+  - name: out_1
+    bitWidth: 1
+  - name: out_2
+    bitWidth: 1
+  - name: out_3
+    bitWidth: 1
+logicModules:
+  - packageName: yudce-module-general
+    moduleClassName: d_flip_flop
+    name: d_0
+  - packageName: yudce-module-general
+    moduleClassName: d_flip_flop
+    name: d_1
+  - packageName: yudce-module-general
+    moduleClassName: d_flip_flop
+    name: d_2
+  - packageName: yudce-module-general
+    moduleClassName: d_flip_flop
+    name: d_3
+connections:
+  # clock
+  - name: clock-d_0-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: d_0
+    nextPinName: Clock
+  - name: clock-d_1-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: d_1
+    nextPinName: Clock
+  - name: clock-d_2-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: d_2
+    nextPinName: Clock
+  - name: clock-d_3-Clock
+    previousModuleName: ''
+    previousPinName: clock
+    nextModuleName: d_3
+    nextPinName: Clock
+
+  # in
+  - name: in-d_0-D
+    previousModuleName: ''
+    previousPinName: in
+    nextModuleName: d_0
+    nextPinName: D
+
+  # d_0
+  - name: d_0-Q-out_0
+    previousModuleName: d_0
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_0
+  - name: d_0-Q-d_1-D
+    previousModuleName: d_0
+    previousPinName: Q
+    nextModuleName: d_1
+    nextPinName: D
+
+  # d_1
+  - name: d_1-Q-out_1
+    previousModuleName: d_1
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_1
+  - name: d_1-Q-d_2-D
+    previousModuleName: d_1
+    previousPinName: Q
+    nextModuleName: d_2
+    nextPinName: D
+
+  # d_2
+  - name: d_2-Q-out_2
+    previousModuleName: d_2
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_2
+  - name: d_2-Q-d_1-D
+    previousModuleName: d_2
+    previousPinName: Q
+    nextModuleName: d_3
+    nextPinName: D
+
+  # d_3
+  - name: d_3-Q-out_3
+    previousModuleName: d_3
+    previousPinName: Q
+    nextModuleName: ''
+    nextPinName: out_3

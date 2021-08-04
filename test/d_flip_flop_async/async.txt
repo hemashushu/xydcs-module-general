@@ -5,8 +5,8 @@ Set  Clear  D  Clock  Q  _Q
 0    0      0  0      x  x
 0    0      0  1      0  1
 
-0    0      1  0      0  1 # 在 clock low 时不更新数据，不更新输出，即维持上一行的 Q 值
-0    0      1  1      1  0 # 在 clock high 时更新数据，更新输出，即 Q 值 = D 值
+0    0      1  0      0  1 # 在 clock low 时不更新存储数据，不更新输出，即维持上一行的 Q 值
+0    0      1  1      1  0 # 在 clock high 时更新存储数据，更新输出，即 Q 值 = D 值
 
 0    1      0  0      0  1 # clear
 0    1      1  1      0  1 # clear
@@ -20,7 +20,7 @@ Set  Clear  D  Clock  Q  _Q
 1    1      0  0      1  1 # clear & set
 1    1      0  1      1  1 # clear & set
 
-0    0      0  0      1  1 # 在 clock low 时不更新数据，不更新输出，即维持上一行的 Q 值
+0    0      0  0      1  1 # 在 clock low 时不更新存储数据，不更新输出，即维持上一行的 Q 值
 0    0      0  1      0  1
 
 0    0      1  0      0  1
