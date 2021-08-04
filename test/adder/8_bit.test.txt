@@ -1,0 +1,10 @@
+---
+bitWidth: 8
+---
+    A  B  Cin  {Cout, S}
+for(a,0,255)
+  for(b,0,255)
+    a  b  0    (a+b)
+    a  b  1    (a+b+1)
+  end
+end

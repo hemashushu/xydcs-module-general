@@ -1,13 +1,17 @@
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
- * D 触发器，主-从脉冲触发
+ * D 触发器，主-从脉冲型
  *
  * D = Data/Delay
  *
- * 在 clock low 时存储值，
- * 在 clock high 时输出存储的值。
+ * 在 clock low 时到下一个 clock low 输出存储的值存储值
+ * 在 clock high 时存储值。
+ * 即输出值 Q 总是比 D 的值慢一拍
+ *
  * https://en.wikipedia.org/wiki/Flip-flop_(electronics)#Master%E2%80%93slave_edge-triggered_D_flip-flop
+ *
+ * 《实用电子元器件与电路基础 4th》P.584
  *
  * Clock   D   Qnext
  * Rising edge 0   0
@@ -42,10 +46,6 @@ class DFlipFlopMasterSlave extends SimpleLogicModule {
         let signal_Q;
 
         if (clockInt32 === 0) {
-            // 更新存储值
-            this._data = dInt32;
-
-        } else {
             // 输出值
             if (this._data === 0) {
                 signalQ = this._signalLow;
@@ -57,6 +57,10 @@ class DFlipFlopMasterSlave extends SimpleLogicModule {
 
             this._pinQ.setSignal(signalQ);
             this._pin_Q.setSignal(signal_Q);
+
+        } else {
+            // 更新存储值
+            this._data = dInt32;
         }
     }
 }

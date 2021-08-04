@@ -1,0 +1,31 @@
+title: Adder
+title[zh_CN]: 加法器
+description: Adder
+description[zh_CN]: 加法器
+group: "Arithmetic"
+group[zh_CN]: "运算器"
+iconFilename: icon.png
+pins:
+  - name: A
+    description: Input data A
+    description[zh_CN]: 输入数据 A
+  - name: B
+    description: Input data B
+    description[zh_CN]: 输入数据 B
+  - name: Cin
+    description: Carry input
+    description[zh_CN]: 进位输入
+  - name: S
+    description: The result of the addition
+    description[zh_CN]: 加法结果
+  - name: Cout
+    description: Carry output
+    description[zh_CN]: 进位输出
+defaultParameters:
+  bitWidth:
+    description: The bit width of input and output pins
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
