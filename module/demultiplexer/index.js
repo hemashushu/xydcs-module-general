@@ -29,6 +29,7 @@ class Demultiplexer extends SimpleLogicModule {
             this.addPin('out_' + idx, this._bitWidth, PinDirection.output);
         }
 
+        // 常量信号
         this._signalLow = Signal.createLow(this._bitWidth);
     }
 

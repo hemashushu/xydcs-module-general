@@ -25,6 +25,7 @@ class Multiplexer extends SimpleLogicModule {
         // 输入端口的名称分别为 in_0, in_1, ... in_N
         this.candidatePins = [];
 
+        // 输入端口
         let inputPinCount = Math.pow(2, this._selectPinBitWidth);
         for (let idx = 0; idx < inputPinCount; idx++) {
             let candidatePin = this.addPin('in_' + idx, this._bitWidth, PinDirection.input);

@@ -19,3 +19,11 @@ pins:
   - name: _Q
     description: The inverted stored value.
     description[zh_CN]: 反转存储的值
+defaultParameters:
+  bitWidth:
+    description: The bit width of input and output data
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32

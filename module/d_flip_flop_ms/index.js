@@ -1,3 +1,4 @@
+const { Binary } = require('jsbinary');
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
@@ -13,7 +14,7 @@ const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
  *
  * 《实用电子元器件与电路基础 4th》P.584
  *
- * Clock   D   Qnext
+ * Clock       D   Qnext
  * Rising edge 0   0
  * Rising edge 1   1
  * Non-rising  X   Q
@@ -22,16 +23,16 @@ class DFlipFlopMasterSlave extends SimpleLogicModule {
 
     // override
     init() {
+        // 数据位宽
+        this._bitWidth = this.getParameter('bitWidth');
+
         // 输入端口
-        this._pinD = this.addPin('D', 1, PinDirection.input);
+        this._pinD = this.addPin('D', this._bitWidth, PinDirection.input);
         this._pinClock = this.addPin('Clock', 1, PinDirection.input);
 
         // 输出端口
-        this._pinQ = this.addPin('Q', 1, PinDirection.output);
-        this._pin_Q = this.addPin('_Q', 1, PinDirection.output);
-
-        this._signalLow = Signal.createLow(1);
-        this._signalHigh = Signal.createHigh(1);
+        this._pinQ = this.addPin('Q', this._bitWidth, PinDirection.output);
+        this._pin_Q = this.addPin('_Q', this._bitWidth, PinDirection.output);
 
         // 存储的值
         this._data = 0;
@@ -42,18 +43,15 @@ class DFlipFlopMasterSlave extends SimpleLogicModule {
         let dInt32 = this._pinD.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
 
-        let signalQ;
-        let signal_Q;
-
         if (clockInt32 === 0) {
             // 输出值
-            if (this._data === 0) {
-                signalQ = this._signalLow;
-                signal_Q = this._signalHigh;
-            } else {
-                signalQ = this._signalHigh;
-                signal_Q = this._signalLow;
-            }
+            let invertedDInt32 = ~ this._data;
+
+            let signalQ = Signal.createWithoutHighZ(this._bitWidth,
+                Binary.fromInt32(this._data, this._bitWidth));
+
+            let signal_Q = Signal.createWithoutHighZ(this._bitWidth,
+                Binary.fromInt32(invertedDInt32, this._bitWidth));
 
             this._pinQ.setSignal(signalQ);
             this._pin_Q.setSignal(signal_Q);

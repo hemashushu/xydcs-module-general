@@ -24,12 +24,13 @@ class JKFlipFlop extends SimpleLogicModule {
         this._pinQ = this.addPin('Q', 1, PinDirection.output);
         this._pin_Q = this.addPin('_Q', 1, PinDirection.output);
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
 
         // 存储的值
         this._data = 0;
-        this._clockPrevious = 0;
+        this._clockInt32Previous = 0;
     }
 
     // override
@@ -41,8 +42,8 @@ class JKFlipFlop extends SimpleLogicModule {
         let signalQ;
         let signal_Q;
 
-        let isRisingEdge = this._clockPrevious === 0 && clockInt32 === 1;
-        this._clockPrevious = clockInt32;
+        let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
+        this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
             if (jInt32 === 0 && kInt32 === 0) {

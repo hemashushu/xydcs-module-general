@@ -36,14 +36,13 @@ class Counter extends SimpleLogicModule {
         this._maxValue = Math.pow(2, this._bitWidth) - 1;
 
         // 上一次时钟信号的值
-        this._clockPrevious = 0;
+        this._clockInt32Previous = 0;
 
-        // 信号常量
-        this._signalStart = Signal.createWithoutHighZ(
-            this._bitWidth, Binary.fromInt32(0, this._bitWidth));
-
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
+        this._signalStart = Signal.createWithoutHighZ(
+            this._bitWidth, Binary.fromInt32(0, this._bitWidth));
     }
 
     // override
@@ -52,8 +51,8 @@ class Counter extends SimpleLogicModule {
         let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
 
-        let isRisingEdge = this._clockPrevious === 0 && clockInt32 === 1;
-        this._clockPrevious = clockInt32;
+        let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
+        this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
             // reset 的优先级大于 enable 的优先级

@@ -21,6 +21,7 @@ class Adder extends SimpleLogicModule {
         this._pinS = this.addPin('S', this._bitWidth, PinDirection.output); // Sum
         this._pinCout = this.addPin('Cout', 1, PinDirection.output); // Carry out
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
     }

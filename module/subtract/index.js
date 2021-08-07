@@ -25,6 +25,7 @@ class Subtract extends SimpleLogicModule {
         // 借位输出，0 表示借位，1 表示不借位
         this._pin_Bout = this.addPin('_Bout', 1, PinDirection.output);
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
     }

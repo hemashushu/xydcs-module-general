@@ -24,6 +24,7 @@ class RSLatch extends SimpleLogicModule {
         this._pinQ = this.addPin('Q', 1, PinDirection.output);
         this._pin_Q = this.addPin('_Q', 1, PinDirection.output);
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
 
@@ -49,12 +50,12 @@ class RSLatch extends SimpleLogicModule {
                 signal_Q = this._signalLow;
             }
         } else if (sInt32 === 1 && rInt32 === 1) {
-            // 输入 S=1, R=1 是不允许的输入情况，因为 RS 触发器规定了 ~Q = NOT(Q)，
+            // 输入 S=1, R=1 是未定义的情况，因为 RS 触发器规定了 ~Q = NOT(Q)，
             // 如果使用两个 NOR 门实现 RS 触发器，则会输出 Q=0, ~Q=0，
             // 这跟 RS 触发器的规则相冲突。
             // https://en.wikipedia.org/wiki/Flip-flop_(electronics)#SR_NOR_latch
             //
-            // 这里不处理这种情况（异常输入），留给上层模块检查/约束输入。
+            // 这里不处理未定义的情况，留给上层模块检查/约束输入。
             signalQ = this._signalLow;
             signal_Q = this._signalLow;
 

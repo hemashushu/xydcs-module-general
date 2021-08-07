@@ -1,3 +1,4 @@
+const { Binary } = require('jsbinary');
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
@@ -23,22 +24,26 @@ class DFlipFlopAsync extends SimpleLogicModule {
 
     // override
     init() {
+        // 数据位宽
+        this._bitWidth = this.getParameter('bitWidth');
+
         // 输入端口
-        this._pinD = this.addPin('D', 1, PinDirection.input);
+        this._pinD = this.addPin('D', this._bitWidth, PinDirection.input);
         this._pinClock = this.addPin('Clock', 1, PinDirection.input);
         this._pinSet = this.addPin('Set', 1, PinDirection.input);
         this._pinReset = this.addPin('Reset', 1, PinDirection.input);
 
         // 输出端口
-        this._pinQ = this.addPin('Q', 1, PinDirection.output);
-        this._pin_Q = this.addPin('_Q', 1, PinDirection.output);
+        this._pinQ = this.addPin('Q', this._bitWidth, PinDirection.output);
+        this._pin_Q = this.addPin('_Q', this._bitWidth, PinDirection.output);
 
-        this._signalLow = Signal.createLow(1);
-        this._signalHigh = Signal.createHigh(1);
+        // 常量信号
+        this._signalZero = Signal.createLow(this._bitWidth);
+        this._signalOne = Signal.createHigh(this._bitWidth);
 
         // 存储的值
         this._data = 0;
-        this._clockPrevious = 0;
+        this._clockInt32Previous = 0;
     }
 
     // override
@@ -48,49 +53,40 @@ class DFlipFlopAsync extends SimpleLogicModule {
         let setInt32 = this._pinSet.getSignal().getLevel().toInt32();
         let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
 
-        let signalQ;
-        let signal_Q;
-
-        let isRisingEdge = this._clockPrevious === 0 && clockInt32 === 1;
-        this._clockPrevious = clockInt32;
+        let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
+        this._clockInt32Previous = clockInt32;
 
         if (setInt32 === 1 && resetInt32 === 1) {
-            this._data = 1;
-            signalQ = this._signalHigh;
-            signal_Q = this._signalHigh;
+            // Set 和 Reset 同时为 1 是未定义的情况，
+            // 这里不处理未定义的情况，留给上层模块检查/约束输入。
+            this._data = this._signalOne.getLevel().toInt32();
 
-            this._pinQ.setSignal(signalQ);
-            this._pin_Q.setSignal(signal_Q);
+            // 同时输出全位高电平
+            // 参考 《实用电子元器件与电路基础》 P.586
+            this._pinQ.setSignal(this._signalOne);
+            this._pin_Q.setSignal(this._signalOne);
 
         } else if (setInt32 === 1) {
-            this._data = 1;
-            signalQ = this._signalHigh;
-            signal_Q = this._signalLow;
-
-            this._pinQ.setSignal(signalQ);
-            this._pin_Q.setSignal(signal_Q);
+            this._data = this._signalOne.getLevel().toInt32();
+            this._pinQ.setSignal(this._signalOne);
+            this._pin_Q.setSignal(this._signalZero);
 
         } else if (resetInt32 === 1) {
-            this._data = 0;
-            signalQ = this._signalLow;
-            signal_Q = this._signalHigh;
-
-            this._pinQ.setSignal(signalQ);
-            this._pin_Q.setSignal(signal_Q);
+            this._data = this._signalZero.getLevel().toInt32();
+            this._pinQ.setSignal(this._signalZero);
+            this._pin_Q.setSignal(this._signalOne);
 
         } else {
             if (isRisingEdge) {
                 // 更新存储值
                 this._data = dInt32;
+                let invertedDInt32 = ~dInt32;
 
-                // 输出值
-                if (this._data === 0) {
-                    signalQ = this._signalLow;
-                    signal_Q = this._signalHigh;
-                } else {
-                    signalQ = this._signalHigh;
-                    signal_Q = this._signalLow;
-                }
+                let signalQ = Signal.createWithoutHighZ(this._bitWidth,
+                    Binary.fromInt32(dInt32, this._bitWidth));
+
+                let signal_Q = Signal.createWithoutHighZ(this._bitWidth,
+                    Binary.fromInt32(invertedDInt32, this._bitWidth));
 
                 this._pinQ.setSignal(signalQ);
                 this._pin_Q.setSignal(signal_Q);

@@ -31,6 +31,7 @@ class Encoder extends SimpleLogicModule {
             this.addPin('in_' + idx, 1, PinDirection.input);
         }
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
     }

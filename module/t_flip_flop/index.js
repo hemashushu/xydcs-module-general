@@ -23,6 +23,7 @@ class TFlipFlop extends SimpleLogicModule {
         this._pinQ = this.addPin('Q', 1, PinDirection.output);
         this._pin_Q = this.addPin('_Q', 1, PinDirection.output);
 
+        // 常量信号
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
 
