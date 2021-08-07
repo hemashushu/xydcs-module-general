@@ -1,7 +1,7 @@
-title: D Flip-Flop Async
-title[zh_CN]: D 触发器 异步
-description: D Flip-Flop with async set/reset, positive edge triggered.
-description[zh_CN]: D 触发器，带异步置位/复位，上升边沿触发。
+title: D Flip-Flop (SR)
+title[zh_CN]: D 触发器 (SR)
+description: D Flip-Flop with set/reset, positive edge triggered.
+description[zh_CN]: D 触发器，带置位/复位，上升边沿触发。
 group: "Flip-Flops"
 group[zh_CN]: "触发器"
 iconFilename: icon.png
@@ -16,8 +16,8 @@ pins:
   - name: Set
     description: Set
     description[zh_CN]: 置位
-  - name: Clear
-    description: Clear
+  - name: Reset
+    description: Reset
     description[zh_CN]: 复位
   - name: Q
     description: The stored value.

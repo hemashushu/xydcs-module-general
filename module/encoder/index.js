@@ -1,7 +1,7 @@
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
- * 十进制-二进制（BCD）优先编码器
+ * 优先编码器，“十进制”转二进制（BCD）
  *
  * 输出输入端口的电平为高电平的端口的索引值，比如共有 4 个输入端口，
  * in_3 为高电平时，输出 4， in_0 为高电平时，输出 1，

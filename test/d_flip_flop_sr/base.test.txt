@@ -1,6 +1,6 @@
-# 上升沿触发 D 触发器，带异步置位/重置
+# 上升沿触发 D 触发器，带置位/重置
 
-Set  Clear  D  Clock  Q  _Q
+Set  Reset  D  Clock  Q  _Q
 
 0    0      0  0      x  x
 0    0      0  1      0  1

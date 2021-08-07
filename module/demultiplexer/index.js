@@ -2,6 +2,10 @@ const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
  * 多路分配器
+ *
+ * 一路输入，根据选择信号，从 N 路当中的其中一路输出。
+ * 如果使用门模块来构造多路分配器，通常还有一个 'Enable' 使能输入端口，可用于
+ * 串联多个多路分配器。（《实用电子元器件与电路基础》P.569）
  */
 class Demultiplexer extends SimpleLogicModule {
 

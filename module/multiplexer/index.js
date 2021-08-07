@@ -2,6 +2,9 @@ const { PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
  * 复用器
+ *
+ * 多路输入，根据选择信号，选择其中一路的信号输出。
+ *
  */
 class Multiplexer extends SimpleLogicModule {
 

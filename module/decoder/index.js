@@ -1,7 +1,7 @@
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
- * 二进制（BCD）-十进制译码
+ * 制译码，二进制（BCD）转“十进制”
  *
  */
 class Decoder extends SimpleLogicModule {

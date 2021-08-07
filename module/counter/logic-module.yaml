@@ -1,0 +1,32 @@
+title: Counter
+title[zh_CN]: 计数器
+description: Counter
+description[zh_CN]: 计数器
+group: "Arithmetic"
+group[zh_CN]: "运算器"
+iconFilename: icon.png
+pins:
+  - name: Enable
+    description: Enable
+    description[zh_CN]: 使能，高电平有效
+  - name: Reset
+    description: Reset
+    description[zh_CN]: 同步复位，高电平有效
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: out
+    description: Output
+    description[zh_CN]: 计数输出
+  - name: Overflow
+    description: Overflow bit
+    description[zh_CN]: 溢出位，当所有输出位为 1 时输出高电平。
+defaultParameters:
+  bitWidth:
+    description: The bit width of "out" pin
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 16
