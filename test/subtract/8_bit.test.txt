@@ -1,0 +1,10 @@
+---
+bitWidth: 8
+---
+    A  B  _Bin  _Bout  S
+for(a,0,255)
+  for(b,0,255)
+    a  b  1     (a>=b)  (a-b)
+    a  b  0     (a>=b+1)  (a-b-1)
+  end
+end

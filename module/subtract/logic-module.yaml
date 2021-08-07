@@ -1,0 +1,33 @@
+title: Subtract
+title[zh_CN]: 减法器
+description: Subtract
+description[zh_CN]: 减法器
+group: "Arithmetic"
+group[zh_CN]: "运算器"
+iconFilename: icon.png
+pins:
+  - name: A
+    description: Input data A
+    description[zh_CN]: 输入数据 A
+  - name: B
+    description: Input data B
+    description[zh_CN]: 输入数据 B
+  - name: _Bin
+    description: Borrow input, 0 indicates borrow, 1 indicates not borrow.
+    description[zh_CN]: 借位输入，0 表示借位，1 表示不借位
+    negative: true
+  - name: S
+    description: The result of the subtraction
+    description[zh_CN]: 减法结果
+  - name: _Bout
+    description: Borrow output, 0 indicates borrow, 1 indicates not borrow.
+    description[zh_CN]: 借位输出，0 表示借位，1 表示不借位
+    negative: true
+defaultParameters:
+  bitWidth:
+    description: The bit width of input and output pins
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32

@@ -1,0 +1,85 @@
+inputPins:
+  - name: sub # 输入高电平，模块会切换成为减法器
+    bitWidth: 1
+  - name: Cin # 作为第一级减法模块时，需要输入高电平，以实现输入 B 的补码（即 B xor 1 + 1，也就是 not(B) + 1）
+    bitWidth: 1
+  - name: A
+    bitWidth: 4
+  - name: B
+    bitWidth: 4
+outputPins:
+  - name: S
+    bitWidth: 4
+  - name: Cout
+    bitWidth: 1
+logicModules:
+  - packageName: yudce-module-general
+    moduleClassName: adder
+    name: adder
+    parameters:
+      bitWidth: 4
+  - packageName: yudce-module-base
+    moduleClassName: xor_gate
+    name: xor
+    parameters:
+      inputPinCount: 2
+      bitWidth: 4
+  - packageName: yudce-module-base
+    moduleClassName: expand
+    name: expand
+    parameters:
+      bitWidth: 4
+connections:
+  # sub
+  - name: sub-expand-in
+    previousModuleName: ''
+    previousPinName: sub
+    nextModuleName: expand
+    nextPinName: in
+
+  # expand
+  - name: expand-out-xor-in_0
+    previousModuleName: expand
+    previousPinName: out
+    nextModuleName: xor
+    nextPinName: in_0
+
+  # A
+  - name: A-adder-A
+    previousModuleName: ''
+    previousPinName: A
+    nextModuleName: adder
+    nextPinName: A
+
+  # B
+  - name: B-xor-in_1
+    previousModuleName: ''
+    previousPinName: B
+    nextModuleName: xor
+    nextPinName: in_1
+
+  # xor
+  - name: xor_out-adder-B
+    previousModuleName: xor
+    previousPinName: out
+    nextModuleName: adder
+    nextPinName: B
+
+  # Cin
+  - name: Cin-adder-Cin
+    previousModuleName: ''
+    previousPinName: Cin
+    nextModuleName: adder
+    nextPinName: Cin
+
+  # adder
+  - name: adder-S-S
+    previousModuleName: adder
+    previousPinName: S
+    nextModuleName: ''
+    nextPinName: S
+  - name: adder-Cout-Cout
+    previousModuleName: adder
+    previousPinName: Cout
+    nextModuleName: ''
+    nextPinName: Cout

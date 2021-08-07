@@ -15,13 +15,12 @@ class Adder extends SimpleLogicModule {
         // 输入端口
         this._pinA = this.addPin('A', this._bitWidth, PinDirection.input);
         this._pinB = this.addPin('B', this._bitWidth, PinDirection.input);
-        this._pinCin = this.addPin('Cin', 1, PinDirection.input);
+        this._pinCin = this.addPin('Cin', 1, PinDirection.input); // Carry in
 
         // 输出端口
-        this._pinS = this.addPin('S', this._bitWidth, PinDirection.output);
-        this._pinCout = this.addPin('Cout', 1, PinDirection.output);
+        this._pinS = this.addPin('S', this._bitWidth, PinDirection.output); // Sum
+        this._pinCout = this.addPin('Cout', 1, PinDirection.output); // Carry out
 
-        // this._binaryOne = Binary.fromInt32(1, this._bitWidth);
         this._signalLow = Signal.createLow(1);
         this._signalHigh = Signal.createHigh(1);
     }
