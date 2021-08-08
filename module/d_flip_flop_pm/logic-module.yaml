@@ -1,7 +1,7 @@
-title: D Flip-Flop M-S
-title[zh_CN]: D 触发器 主-从型
-description: D Flip-Flop, Master–slave edge triggered.
-description[zh_CN]: D 触发器，主-从脉冲触发。
+title: D Flip-Flop (Primary-Minor)
+title[zh_CN]: D 触发器 （主-从型）
+description: D Flip-Flop, Primary-Minor positive edge triggered.
+description[zh_CN]: D 触发器，主-从型脉冲触发。
 group: "Flip-Flops"
 group[zh_CN]: "触发器"
 iconFilename: icon.png

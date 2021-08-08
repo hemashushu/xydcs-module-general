@@ -1,5 +1,5 @@
-title: D Flip-Flop (SR)
-title[zh_CN]: D 触发器 (SR)
+title: D Flip-Flop (Set/Reset)
+title[zh_CN]: D 触发器 (带置位/复位)
 description: D Flip-Flop with set/reset, positive edge triggered.
 description[zh_CN]: D 触发器，带置位/复位，上升边沿触发。
 group: "Flip-Flops"

@@ -1,0 +1,43 @@
+title: Counter (with Preset)
+title[zh_CN]: 计数器 （带预设）
+description: Counter with preset
+description[zh_CN]: 计数器，带预设
+group: "Arithmetic"
+group[zh_CN]: "运算器"
+iconFilename: icon.png
+pins:
+  - name: Enable
+    description: Enable
+    description[zh_CN]: 使能，高电平有效
+  - name: Reset
+    direction: bottom
+    description: Reset
+    description[zh_CN]: 同步复位，高电平有效
+  - name: Set
+    direction: up
+    description: Set the preset value
+    description[zh_CN]: 设置预设的值
+  - name: Decrease
+    description: Set counter to countdown mode
+    description[zh_CN]: 设置计数器为倒数模式
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: in
+    description: The preset value
+    description[zh_CN]: 预设的值
+  - name: out
+    description: Output
+    description[zh_CN]: 计数输出
+  - name: Overflow
+    description: Overflow bit
+    description[zh_CN]: 溢出位。处于正数模式时，当所有输出位为 1 时输出高电平；处于倒数模式时，当输出值为 0 时输出高电平。
+defaultParameters:
+  bitWidth:
+    description: The bit width of input and output pins
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 16

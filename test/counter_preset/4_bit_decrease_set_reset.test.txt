@@ -1,0 +1,25 @@
+---
+!set: Decrease = 1
+!set: in = 5
+!set: Enable = 1
+!clock: Clock
+!edge: posedge
+bitWidth: 4
+---
+Set  Reset  out      Overflow
+0    0      0b1111   0
+0    0      0b1110   0
+1    0      0b0101   0  # set
+0    0      0b0100   0
+0    0      0b0011   0
+0    1      0b0000   1  # reset
+0    0      0b1111   0
+0    0      0b1110   0
+1    0      0b0101   0  # set
+0    0      0b0100   0
+0    0      0b0011   0
+0    0      0b0010   0
+0    0      0b0001   0
+0    0      0b0000   1
+0    0      0b1111   0
+0    0      0b1110   0

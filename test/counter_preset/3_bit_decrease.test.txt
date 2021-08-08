@@ -1,0 +1,21 @@
+---
+!set: Enable = 1
+!set: Reset = 0
+!set: Decrease = 1
+!set: Set = 0
+!set: in = 0
+!clock: Clock
+!edge: posedge
+bitWidth: 3
+---
+out    Overflow
+0b111  0
+0b110  0
+0b101  0
+0b100  0
+0b011  0
+0b010  0
+0b001  0
+0b000  1
+0b111  0
+0b110  0

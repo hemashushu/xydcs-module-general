@@ -19,7 +19,7 @@ const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
  * Rising edge 1   1
  * Non-rising  X   Q
  */
-class DFlipFlopMasterSlave extends SimpleLogicModule {
+class DFlipFlopPrimaryMinor extends SimpleLogicModule {
 
     // override
     init() {
@@ -63,4 +63,4 @@ class DFlipFlopMasterSlave extends SimpleLogicModule {
     }
 }
 
-module.exports = DFlipFlopMasterSlave;
+module.exports = DFlipFlopPrimaryMinor;
