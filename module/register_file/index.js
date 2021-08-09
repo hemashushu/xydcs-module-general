@@ -3,6 +3,7 @@ const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
  * 寄存器堆，上升边沿触发。
+ * 当 writeEnable 为高电平时，同地址的输出的信号等于输入的信号，即输出的总是最新的值
  *
  */
 class RegisterFile extends SimpleLogicModule {
@@ -48,6 +49,7 @@ class RegisterFile extends SimpleLogicModule {
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
+            // 先更新数据
             let writeEnableInt32 = this._pinWriteEnable.getSignal().getLevel().toInt32();
             if (writeEnableInt32 === 1) {
                 let writeDataInt32 = this._pinWriteData.getSignal().getLevel().toInt32();

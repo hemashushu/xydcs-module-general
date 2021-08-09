@@ -12,7 +12,7 @@ pins:
   - name: Clock
     edge: positive
     description: Clock, positive edge triggered
-    description[zh_CN]: 时钟信号，上升缘触发
+    description[zh_CN]: 时钟信号，上升沿触发
   - name: Enable
     description: Store input data when high level
     description[zh_CN]: 高电平时存储输入数据

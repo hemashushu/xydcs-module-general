@@ -1,0 +1,18 @@
+---
+!clock: Clock
+!edge: posedge
+bitWidth: 8
+addressBitWidth: 4
+---
+address  writeEnable  dataIn      readEnable  dataOut
+0b0000   0            0b00000000  1           0b00000000
+0b0001   1            0b11110000  1           0b11110000  # write enable
+0b0000   0            0b00000011  1           0b00000000
+0b0001   0            0b00000011  1           0b11110000
+0b0001   0            0b00000011  0           0bzzzzzzzz  # ~read enable
+
+0b0000   1            0b00001111  1           0b00001111  # 覆盖
+0b0001   1            0b10101010  1           0b10101010  # 覆盖
+
+0b0000   0            0b00000000  1           0b00001111  # 检查
+0b0001   0            0b00000000  1           0b10101010  # 检查

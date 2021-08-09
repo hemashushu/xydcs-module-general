@@ -3,7 +3,7 @@ const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
  * 寄存器，上升边沿触发。
- *
+ * 当 enable 为高电平时，输出的信号等于输入的信号，即输出的总是最新的值
  */
 class Register extends SimpleLogicModule {
 

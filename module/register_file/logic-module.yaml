@@ -18,7 +18,7 @@ pins:
   - name: Clock
     edge: positive
     description: Clock, positive edge triggered
-    description[zh_CN]: 时钟信号，上升缘触发
+    description[zh_CN]: 时钟信号，上升沿触发
   - name: readAddressA
     description: Address of the first register to read data
     description[zh_CN]: 待读取数据的第一个寄存器的地址
@@ -34,7 +34,7 @@ pins:
 defaultParameters:
   bitWidth:
     description: The bit width of the stored data
-    value: 1
+    value: 8
     valueType: range
     valueRange:
       from: 1

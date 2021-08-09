@@ -15,7 +15,7 @@ pins:
   - name: Clock
     edge: positive
     description: Clock, positive edge triggered
-    description[zh_CN]: 时钟信号，上升缘触发
+    description[zh_CN]: 时钟信号，上升沿触发
   - name: out
     description: Output
     description[zh_CN]: 计数输出

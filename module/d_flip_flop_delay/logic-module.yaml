@@ -1,7 +1,7 @@
-title: D Flip-Flop (Primary-Minor)
-title[zh_CN]: D 触发器 （主-从型）
-description: D Flip-Flop, Primary-Minor positive edge triggered.
-description[zh_CN]: D 触发器，主-从型脉冲触发。
+title: D Flip-Flop (Delay)
+title[zh_CN]: D 触发器 （延迟型）
+description: D Flip-Flop, delay the output.
+description[zh_CN]: D 触发器，延迟输出。
 group: "Flip-Flops"
 group[zh_CN]: "触发器"
 iconFilename: icon.png
@@ -12,7 +12,7 @@ pins:
   - name: Clock
     edge: positive
     description: Clock, positive edge triggered
-    description[zh_CN]: 时钟信号，上升缘触发
+    description[zh_CN]: 时钟信号，上升沿触发
   - name: Q
     description: The stored value.
     description[zh_CN]: 存储的值
