@@ -26,7 +26,7 @@ pins:
     description: The output data
     description[zh_CN]: 读取的数据
 defaultParameters:
-  bitWidth:
+  dataBitWidth:
     description: The bit width of the stored data
     value: 8
     valueType: option
@@ -35,6 +35,10 @@ defaultParameters:
       - 16
       - 24
       - 32
+  dataUnitCount:
+    description: The number of data store units
+    value: 64
+    valueType: number
   addressBitWidth:
     description: The bit width of the address
     value: 2

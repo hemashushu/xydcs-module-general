@@ -1,7 +1,8 @@
 ---
 !clock: Clock
 !edge: posedge
-bitWidth: 8
+dataBitWidth: 8
+dataUnitCount: 16
 addressBitWidth: 4
 ---
 address  writeEnable  dataIn      readEnable  dataOut

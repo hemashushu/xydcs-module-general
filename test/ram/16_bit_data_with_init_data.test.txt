@@ -1,7 +1,8 @@
 ---
 !clock: Clock
 !edge: posedge
-bitWidth: 16
+dataBitWidth: 16
+dataUnitCount: 16
 addressBitWidth: 4
 initialData: binary(file:binary.bin)
 ---
