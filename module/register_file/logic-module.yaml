@@ -1,0 +1,48 @@
+title: Register File
+title[zh_CN]: 寄存器堆
+description: Register file
+description[zh_CN]: 寄存器堆
+group: "Memory"
+group[zh_CN]: "存储器"
+iconFilename: icon.png
+pins:
+  - name: writeAddress
+    description: Address of the register to be written
+    description[zh_CN]: 待写入数据的寄存器的地址
+  - name: writeData
+    description: The data to be stored
+    description[zh_CN]: 待写入的数据
+  - name: writeEnable
+    description: Write enable
+    description[zh_CN]: 写入使能信号
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: readAddressA
+    description: Address of the first register to read data
+    description[zh_CN]: 待读取数据的第一个寄存器的地址
+  - name: readAddressB
+    description: Address of the second register to read data
+    description[zh_CN]: 待读取数据的第二个寄存器的地址
+  - name: readDataA
+    description: The data of the first specified register
+    description[zh_CN]: 第一个指定的寄存器的数据
+  - name: readDataB
+    description: The data of the second specified register
+    description[zh_CN]: 第二个指定的寄存器的数据
+defaultParameters:
+  bitWidth:
+    description: The bit width of the stored data
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
+  addressBitWidth:
+    description: The bit width of the address
+    value: 2
+    valueType: range
+    valueRange:
+      from: 1
+      to: 8
