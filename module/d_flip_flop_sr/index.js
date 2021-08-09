@@ -48,13 +48,13 @@ class DFlipFlopAsync extends SimpleLogicModule {
 
     // override
     updateModuleState() {
-        let dInt32 = this._pinD.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
-        let setInt32 = this._pinSet.getSignal().getLevel().toInt32();
-        let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
 
         let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
         this._clockInt32Previous = clockInt32;
+
+        let setInt32 = this._pinSet.getSignal().getLevel().toInt32();
+        let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
 
         if (setInt32 === 1 && resetInt32 === 1) {
             // Set 和 Reset 同时为 1 是未定义的情况，
@@ -78,6 +78,8 @@ class DFlipFlopAsync extends SimpleLogicModule {
 
         } else {
             if (isRisingEdge) {
+                let dInt32 = this._pinD.getSignal().getLevel().toInt32();
+
                 // 更新存储值
                 this._data = dInt32;
                 let invertedDInt32 = ~dInt32;

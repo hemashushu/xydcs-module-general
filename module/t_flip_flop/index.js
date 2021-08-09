@@ -37,14 +37,14 @@ class TFlipFlop extends SimpleLogicModule {
         let tInt32 = this._pinT.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
 
-        let signalQ;
-        let signal_Q;
-
         let isRisingEdge = this._clockPrevious === 0 && clockInt32 === 1;
         this._clockPrevious = clockInt32;
 
         if (tInt32 === 0) {
             // 保持值不变
+            let signalQ;
+            let signal_Q;
+
             if (this._data === 0) {
                 signalQ = this._signalLow;
                 signal_Q = this._signalHigh;
@@ -62,6 +62,9 @@ class TFlipFlop extends SimpleLogicModule {
                 this._data = this._data ^ tInt32; // XOR
 
                 // 输出值
+                let signalQ;
+                let signal_Q;
+
                 if (this._data === 0) {
                     signalQ = this._signalLow;
                     signal_Q = this._signalHigh;

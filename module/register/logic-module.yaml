@@ -1,0 +1,30 @@
+title: Register
+title[zh_CN]: 寄存器
+description: Register, positive edge triggered.
+description[zh_CN]: 寄存器，上升边沿触发。
+group: "Memory"
+group[zh_CN]: "存储器"
+iconFilename: icon.png
+pins:
+  - name: D
+    description: Input data
+    description[zh_CN]: 输入数据
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: Enable
+    description: Store input data when high level
+    description[zh_CN]: 高电平时存储输入数据
+  - name: Q
+    description: Output the stored value.
+    description[zh_CN]: 输出存储的值
+
+defaultParameters:
+  bitWidth:
+    description: The bit width of the stored data
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32

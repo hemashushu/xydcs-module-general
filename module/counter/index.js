@@ -43,14 +43,15 @@ class Counter extends SimpleLogicModule {
 
     // override
     updateModuleState() {
-        let enableInt32 = this._pinEnable.getSignal().getLevel().toInt32();
-        let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
 
         let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
+            let enableInt32 = this._pinEnable.getSignal().getLevel().toInt32();
+            let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
+
             // reset 的优先级大于 enable 的优先级
             if (resetInt32 === 1) {
                 this._value = 0;

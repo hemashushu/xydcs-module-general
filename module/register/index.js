@@ -2,16 +2,10 @@ const { Binary } = require('jsbinary');
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
- * D 触发器，上升边沿触发。
+ * 寄存器，上升边沿触发。
  *
- * D = Data/Delay
- *
- * Clock       D   Qnext
- * Rising edge 0   0
- * Rising edge 1   1
- * Non-rising  X   Q
  */
-class DFlipFlop extends SimpleLogicModule {
+class Register extends SimpleLogicModule {
 
     // override
     init() {
@@ -21,10 +15,10 @@ class DFlipFlop extends SimpleLogicModule {
         // 输入端口
         this._pinD = this.addPin('D', this._bitWidth, PinDirection.input);
         this._pinClock = this.addPin('Clock', 1, PinDirection.input);
+        this._pinEnable = this.addPin('Enable', 1, PinDirection.input);
 
         // 输出端口
         this._pinQ = this.addPin('Q', this._bitWidth, PinDirection.output);
-        this._pin_Q = this.addPin('_Q', this._bitWidth, PinDirection.output);
 
         // 存储的值
         this._data = 0;
@@ -39,22 +33,20 @@ class DFlipFlop extends SimpleLogicModule {
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
-            let dInt32 = this._pinD.getSignal().getLevel().toInt32();
+            let enableInt32 = this._pinEnable.getSignal().getLevel().toInt32();
+            if (enableInt32 === 1) {
+                let dInt32 = this._pinD.getSignal().getLevel().toInt32();
 
-            // 更新存储值
-            this._data = dInt32;
-            let invertedDInt32 = ~dInt32;
+                // 更新存储值
+                this._data = dInt32;
 
-            let signalQ = Signal.createWithoutHighZ(this._bitWidth,
-                Binary.fromInt32(dInt32, this._bitWidth));
+                let signalQ = Signal.createWithoutHighZ(this._bitWidth,
+                    Binary.fromInt32(dInt32, this._bitWidth));
 
-            let signal_Q = Signal.createWithoutHighZ(this._bitWidth,
-                Binary.fromInt32(invertedDInt32, this._bitWidth));
-
-            this._pinQ.setSignal(signalQ);
-            this._pin_Q.setSignal(signal_Q);
+                this._pinQ.setSignal(signalQ);
+            }
         }
     }
 }
 
-module.exports = DFlipFlop;
+module.exports = Register;

@@ -59,15 +59,16 @@ class CounterWithPreset extends SimpleLogicModule {
 
     // override
     updateModuleState() {
-        let enableInt32 = this._pinEnable.getSignal().getLevel().toInt32();
-        let setInt32 = this._pinSet.getSignal().getLevel().toInt32();
-        let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
 
         let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
+            let resetInt32 = this._pinReset.getSignal().getLevel().toInt32();
+            let setInt32 = this._pinSet.getSignal().getLevel().toInt32();
+            let enableInt32 = this._pinEnable.getSignal().getLevel().toInt32();
+
             this._decrease = this._pinDecrease.getSignal().getLevel().toInt32();
 
             // reset 的优先级大于 set 的优先级

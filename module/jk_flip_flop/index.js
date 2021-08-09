@@ -35,17 +35,15 @@ class JKFlipFlop extends SimpleLogicModule {
 
     // override
     updateModuleState() {
-        let jInt32 = this._pinJ.getSignal().getLevel().toInt32();
-        let kInt32 = this._pinK.getSignal().getLevel().toInt32();
         let clockInt32 = this._pinClock.getSignal().getLevel().toInt32();
-
-        let signalQ;
-        let signal_Q;
 
         let isRisingEdge = this._clockInt32Previous === 0 && clockInt32 === 1;
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
+            let jInt32 = this._pinJ.getSignal().getLevel().toInt32();
+            let kInt32 = this._pinK.getSignal().getLevel().toInt32();
+
             if (jInt32 === 0 && kInt32 === 0) {
                 // 保持之前保存的值
             } else if (jInt32 === 1 && kInt32 === 1) {
@@ -58,6 +56,9 @@ class JKFlipFlop extends SimpleLogicModule {
                 // 重置值
                 this._data = 0;
             }
+
+            let signalQ;
+            let signal_Q;
 
             if (this._data === 0) {
                 signalQ = this._signalLow;
