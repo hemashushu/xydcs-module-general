@@ -1,0 +1,22 @@
+---
+!clock: Clock
+!edge: posedge
+bitWidth: 8
+addressBitWidth: 4
+initialData: binary(file:binary.bin)
+---
+address  writeEnable  dataIn  readEnable  dataOut
+0b0000   0            0x00    1           0x00
+0b0001   0            0x00    1           0x11
+0b0010   0            0x00    1           0x22
+0b0011   0            0x00    1           0x33
+0b0100   0            0x00    1           0x44
+0b0101   0            0x00    1           0x55
+0b0110   0            0x00    1           0x66
+0b0111   0            0x00    1           0x77
+
+0b0001   1            0xaa    1           0x11  # 覆盖
+0b0011   1            0xbb    1           0x33  # 覆盖
+
+0b0001   0            0x00    1           0xaa  # 检查
+0b0011   0            0x00    1           0xbb  # 检查

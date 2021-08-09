@@ -1,0 +1,49 @@
+title: Block RAM
+title[zh_CN]: Block RAM
+description: Block RAM
+description[zh_CN]: Block RAM，常见于 FPGA，速度快延迟低，因为是连续的储存单元，所以称为 “块”。当允许写入时，先读出已存储的数据，然后才存储新的数据。即同一个地址输出的数据比输入的慢一个时钟周期。
+group: "Memory"
+group[zh_CN]: "存储器"
+iconFilename: icon.png
+pins:
+  - name: address
+    description: Address for read/write
+    description[zh_CN]: 读写的数据地址
+  - name: dataIn
+    description: The data to be stored
+    description[zh_CN]: 待写入的数据
+  - name: writeEnable
+    description: Write enable
+    description[zh_CN]: 写入使能信号
+  - name: readEnable
+    description: Read enable
+    description[zh_CN]: 读取使能信号
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升沿触发
+  - name: dataOut
+    description: The output data
+    description[zh_CN]: 读取的数据
+defaultParameters:
+  bitWidth:
+    description: The bit width of the stored data
+    value: 8
+    valueType: option
+    valueOptions:
+      - 8
+      - 16
+      - 24
+      - 32
+  addressBitWidth:
+    description: The bit width of the address
+    value: 2
+    valueType: range
+    valueRange:
+      from: 1
+      to: 8
+  initialData:
+    description: The initial data
+    valueType: binary
+    binarySourceType: config
+    value: '' # hex 编码的字符串

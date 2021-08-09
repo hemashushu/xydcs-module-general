@@ -2,14 +2,15 @@ const { Binary } = require('jsbinary');
 const { Signal, PinDirection, SimpleLogicModule } = require('jslogiccircuit');
 
 /**
- * RAM，通用的随机存储器
+ * Block RAM，常见于 FPGA，速度快延迟低，因为是连续的储存单元，所以称为 “块”。当允许写入时，先读出已存储的数据，然后才存储新的数据。即同一个地址输出的数据比输入的慢一个时钟周期。
+ *
  * - 在时钟上升沿时存储数据及输出数据
- * - 如果同时允许写入和读取，则输出端的数据将与写入端的数据相同。
+ * - 如果同时允许写入和读取，先读出已存储的数据，然后才存储新的数据。即同一个地址输出的数据比输入的慢一个时钟周期。
  * - 当 readEnable 为低电平时，输出高阻抗。
  * - writeEnable 和 readEnable 可以同时设置为 1 或者 0，作为片选信号（Chip select），从而
  *   实现使用多个小容量的 RAM 构成一个大容量的 RAM。
  */
-class RAM extends SimpleLogicModule {
+class BlockRAM extends SimpleLogicModule {
 
     // override
     init() {
@@ -80,14 +81,8 @@ class RAM extends SimpleLogicModule {
         this._clockInt32Previous = clockInt32;
 
         if (isRisingEdge) {
-            // 先写入，再读取
-            // 因此读取的数据总是最新的
-            let writeEnableInt32 = this._pinWriteEnable.getSignal().getLevel().toInt32();
-            if (writeEnableInt32 === 1) {
-                let dataInInt32 = this._pinDataIn.getSignal().getLevel().toInt32();
-                let addressInt32 = this._pinAddress.getSignal().getLevel().toInt32();
-                this._storeUnits[addressInt32] = dataInInt32;
-            }
+            // 先读取已存储的数据，再写入数据
+            // 因此同一个地址读取的数据总是比输入数据慢一个时钟周期
 
             // readEnable 为低电平时，输出高阻抗
             let readEnableInt32 = this._pinReadEnable.getSignal().getLevel().toInt32();
@@ -99,8 +94,15 @@ class RAM extends SimpleLogicModule {
             } else {
                 this._pinDataOut.setSignal(this._signalHighZ);
             }
+
+            let writeEnableInt32 = this._pinWriteEnable.getSignal().getLevel().toInt32();
+            if (writeEnableInt32 === 1) {
+                let dataInInt32 = this._pinDataIn.getSignal().getLevel().toInt32();
+                let addressInt32 = this._pinAddress.getSignal().getLevel().toInt32();
+                this._storeUnits[addressInt32] = dataInInt32;
+            }
         }
     }
 }
 
-module.exports = RAM;
+module.exports = BlockRAM;
