@@ -1,0 +1,26 @@
+title: Shift Register (Serial-in, Parallel-out)
+title[zh_CN]: 移位寄存器（串入，并出）
+description: Shift register (serial-in, parallel-out)
+description[zh_CN]: 移位寄存器（串入，并出）
+defaultParameters:
+  outputPinCount:
+    description: The amount of output pins
+    value: 4
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
+pins:
+  - name: Enable
+    description: Enable
+    description[zh_CN]: 使能，高电平有效
+  - name: Reset
+    description: Reset
+    description[zh_CN]: 同步复位，高电平有效
+  - name: Clock
+    edge: positive
+    description: Clock, positive edge triggered
+    description[zh_CN]: 时钟信号，上升缘触发
+  - name: in
+    description: Input data
+    description[zh_CN]: 输入的数据

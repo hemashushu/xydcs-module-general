@@ -1,5 +1,5 @@
 inputPins:
-  - name: clock
+  - name: Clock
     bitWidth: 1
   - name: in
     bitWidth: 1
@@ -26,25 +26,25 @@ logicModules:
     moduleClassName: d_flip_flop
     name: d_3
 connections:
-  # clock
-  - name: clock-d_0-Clock
+  # Clock
+  - name: Clock-d_0-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: d_0
     nextPinName: Clock
-  - name: clock-d_1-Clock
+  - name: Clock-d_1-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: d_1
     nextPinName: Clock
-  - name: clock-d_2-Clock
+  - name: Clock-d_2-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: d_2
     nextPinName: Clock
-  - name: clock-d_3-Clock
+  - name: Clock-d_3-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: d_3
     nextPinName: Clock
 

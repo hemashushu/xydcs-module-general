@@ -1,0 +1,17 @@
+---
+!clock: Clock
+!edge: posedge
+outputPinCount: 4
+---
+Enable  Reset  in  out_3  out_2  out_1  out_0 # MSB: out_3, LSB: out_0
+1       0      0   0      0      0      0
+1       0      1   0      0      0      1
+1       0      1   0      0      1      1
+0       0      1   0      0      1      1  # ~enable
+0       0      1   0      0      1      1  # ~enable
+1       0      0   0      1      1      0
+1       0      0   1      1      0      0
+1       0      1   1      0      0      1
+1       1      0   0      0      0      0  # reset
+1       0      1   0      0      0      1
+1       0      1   0      0      1      1

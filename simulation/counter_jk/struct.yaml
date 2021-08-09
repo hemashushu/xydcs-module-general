@@ -1,5 +1,5 @@
 inputPins:
-  - name: clock
+  - name: Clock
     bitWidth: 1
 outputPins:
   - name: out_0
@@ -41,25 +41,25 @@ logicModules:
     parameters:
       bitWidth: 1
 connections:
-  # clock
-  - name: clock-jk_0-Clock
+  # Clock
+  - name: Clock-jk_0-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: jk_0
     nextPinName: Clock
-  - name: clock-jk_1-Clock
+  - name: Clock-jk_1-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: jk_1
     nextPinName: Clock
-  - name: clock-jk_2-Clock
+  - name: Clock-jk_2-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: jk_2
     nextPinName: Clock
-  - name: clock-jk_3-Clock
+  - name: Clock-jk_3-Clock
     previousModuleName: ''
-    previousPinName: clock
+    previousPinName: Clock
     nextModuleName: jk_3
     nextPinName: Clock
 
