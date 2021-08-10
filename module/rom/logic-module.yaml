@@ -1,0 +1,43 @@
+title: ROM
+title[zh_CN]: ROM
+description: ROM
+description[zh_CN]: ROM
+group: "Memory"
+group[zh_CN]: "存储器"
+iconFilename: icon.png
+pins:
+  - name: address
+    description: Address for read/write
+    description[zh_CN]: 读写的数据地址
+  - name: chipSelect
+    description: Chip select
+    description[zh_CN]: 片选信号
+  - name: dataOut
+    description: The output data
+    description[zh_CN]: 读取的数据
+defaultParameters:
+  dataBitWidth:
+    description: The bit width of the stored data
+    value: 8
+    valueType: option
+    valueOptions:
+      - 8
+      - 16
+      - 24
+      - 32
+  dataUnitCount:
+    description: The number of data store units
+    value: 64
+    valueType: number
+  addressBitWidth:
+    description: The bit width of the address
+    value: 2
+    valueType: range
+    valueRange:
+      from: 1
+      to: 8
+  initialData:
+    description: The initial data
+    valueType: binary
+    binarySourceType: config
+    value: '' # hex 编码的字符串

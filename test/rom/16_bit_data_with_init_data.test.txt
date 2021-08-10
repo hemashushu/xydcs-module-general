@@ -1,0 +1,15 @@
+---
+dataBitWidth: 16
+dataUnitCount: 16
+addressBitWidth: 4
+initialData: binary(file:binary.bin)
+---
+address  chipSelect  dataOut
+0b0000   1           0x1100
+0b0001   1           0x3322
+0b0010   1           0x5544
+0b0011   1           0x7766
+0b0001   0           0xzzzz  # ~chip select
+0b0011   0           0xzzzz  # ~chip select
+0b0001   1           0x3322
+0b0011   1           0x7766
