@@ -1,4 +1,4 @@
-# Yu Digital Circuit Emulator Module - General
+# General Digital Circuit Simulator Modules
 
 General digital logic modules, such as multiplexers, flip-flops etc.
 
