@@ -1,5 +1,5 @@
 {
-    "name": "yudce-module-general",
+    "name": "xydcs-module-general",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hemashushu/yudce-module-general.git"
+        "url": "git+https://github.com/hemashushu/xydcs-module-general.git"
     },
     "keywords": [
         "digital",
@@ -18,9 +18,9 @@
     "author": "Hippo Spark <hippospark@gmail.com> (https://twitter.com/hemashushu)",
     "license": "SEE LICENSE IN <LICENSE.md>",
     "bugs": {
-        "url": "https://github.com/hemashushu/yudce-module-general/issues"
+        "url": "https://github.com/hemashushu/xydcs-module-general/issues"
     },
-    "homepage": "https://github.com/hemashushu/yudce-module-general",
+    "homepage": "https://github.com/hemashushu/xydcs-module-general",
     "devDependencies": {
         "jslogiccircuitunittest": "github:hemashushu/jslogiccircuitunittest"
     },

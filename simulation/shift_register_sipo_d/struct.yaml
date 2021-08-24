@@ -13,16 +13,16 @@ outputPins:
   - name: out_3
     bitWidth: 1
 logicModules:
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: d_flip_flop
     name: d_0
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: d_flip_flop
     name: d_1
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: d_flip_flop
     name: d_2
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: d_flip_flop
     name: d_3
 connections:

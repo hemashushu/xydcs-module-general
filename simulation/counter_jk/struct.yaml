@@ -11,31 +11,31 @@ outputPins:
   - name: out_3
     bitWidth: 1
 logicModules:
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: jk_flip_flop
     name: jk_0
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: jk_flip_flop
     name: jk_1
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: jk_flip_flop
     name: jk_2
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: jk_flip_flop
     name: jk_3
-  - packageName: yudce-module-base
+  - packageName: xydcs-module-base
     moduleClassName: and_gate
     name: and_0
     parameters:
       inputPinCount: 2
       bitWidth: 1
-  - packageName: yudce-module-base
+  - packageName: xydcs-module-base
     moduleClassName: and_gate
     name: and_1
     parameters:
       inputPinCount: 2
       bitWidth: 1
-  - packageName: yudce-module-base
+  - packageName: xydcs-module-base
     moduleClassName: high_level
     name: high
     parameters:

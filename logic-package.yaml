@@ -4,4 +4,4 @@ description: General logic modules, such as "Multiplexer" and "Flip-flop" etc.
 description[zh_CN]: 常用的逻辑模块，诸如 “复用器”，“触发器” 等。
 iconFilename: icon.png
 dependencies:
-  - yudce-module-base
+  - xydcs-module-base

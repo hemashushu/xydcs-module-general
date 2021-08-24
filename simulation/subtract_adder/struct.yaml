@@ -13,33 +13,33 @@ outputPins:
   - name: Cout
     bitWidth: 1
 logicModules:
-  - packageName: yudce-module-general
+  - packageName: xydcs-module-general
     moduleClassName: adder
     name: adder
     parameters:
       bitWidth: 4
-  - packageName: yudce-module-base
+  - packageName: xydcs-module-base
     moduleClassName: xor_gate
     name: xor
     parameters:
       inputPinCount: 2
       bitWidth: 4
-  - packageName: yudce-module-base
-    moduleClassName: expand
-    name: expand
+  - packageName: xydcs-module-base
+    moduleClassName: bit_expand
+    name: bit_expand
     parameters:
       bitWidth: 4
 connections:
   # sub
-  - name: sub-expand-in
+  - name: sub-bit_expand-in
     previousModuleName: ''
     previousPinName: sub
-    nextModuleName: expand
+    nextModuleName: bit_expand
     nextPinName: in
 
-  # expand
-  - name: expand-out-xor-in_0
-    previousModuleName: expand
+  # bit_expand
+  - name: bit_expand-out-xor-in_0
+    previousModuleName: bit_expand
     previousPinName: out
     nextModuleName: xor
     nextPinName: in_0

@@ -1,0 +1,29 @@
+title: Left Shift
+title[zh_CN]: 左移
+description: Left Shift
+description[zh_CN]: 左移
+group: "Arithmetic"
+group[zh_CN]: "运算器"
+iconFilename: icon.png
+pins:
+  - name: in
+    description: Data input
+    description[zh_CN]: 数据输入
+  - name: out
+    description: Data Output
+    description[zh_CN]: 数据输出
+defaultParameters:
+  bitWidth:
+    description: The bit width of data
+    value: 8
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
+  count:
+    description: Shift bits count
+    value: 1
+    valueType: range
+    valueRange:
+      from: 1
+      to: 32
